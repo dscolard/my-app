@@ -8,7 +8,7 @@ import { Route, Link, BrowserRouter as Router } from 'react-router-dom'
 import About from './components/About';
 import Features from './components/Features';
 import Home from './components/home';
-import Footer from './components/Footer/Footer';
+import FAQ from './components/FAQ';
 
 const routing = (
     <Router>
@@ -18,6 +18,7 @@ const routing = (
         <Route path="/home" component={Home}/>
         <Route path="/About" component={About} />
         <Route path="/Features" component={Features} />
+        <Route path="/FAQ" component={FAQ}/>
       </div>
     </Router>
   )

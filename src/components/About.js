@@ -6,6 +6,7 @@ class About extends React.Component {
       padding: "20px",
       margin: "20px"
     };
+    
     return (
       <div style={marginStyle}>
         <h1>About</h1>

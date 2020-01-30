@@ -47,6 +47,7 @@ class NavDropdown extends React.Component {
 
 class Navigation extends React.Component {
   render() {
+    
     return (
       <nav className="navbar navbar-expand-lg navbar-dark bg-dark">
         <a className="navbar-brand" href="/">MND Research</a>
@@ -63,11 +64,11 @@ class Navigation extends React.Component {
             <NavItem path="/FAQ" name="FAQ" />
 
             
-              <NavDropdown name="Dropdown">
-                <a className="dropdown-item" href="/">Action</a>
-                <a className="dropdown-item" href="/">Another action</a>
+              <NavDropdown name="Profile">
+                <a className="dropdown-item" href="/">Settings</a>
+                <a className="dropdown-item" href="/">Help</a>
                 <div className="dropdown-divider"></div>
-                <a className="dropdown-item" href="/">Something else here</a>
+                <a className="dropdown-item" href="/">Sign Out</a>
               </NavDropdown>
             
           </ul>

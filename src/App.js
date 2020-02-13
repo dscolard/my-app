@@ -4,11 +4,15 @@ import Navigation from './components/Navigation';
 
 
 class App extends Component {
+
+
+  //Manage Data Here
+
   render() {
     return(
-      <div>
-        <Navigation/>
-      </div>
+      <body>
+        <div><Navigation/></div>        
+      </body>
     ) ; 
   }
 }

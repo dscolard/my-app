@@ -2,14 +2,14 @@ import React from 'react'
 
 var marginStyle = {
     padding: "20px",
-    margin: "20px"
   };
 
 class Home extends React.Component {
+
   render() {
     return (
-    <div>
-        <div className="container">
+    <div> 
+        <div className="container" style={marginStyle}>
           <div class="alert alert-primary" role="alert" style={marginStyle}>
             Your Data Quality Analysis is coming soon !
           </div>

@@ -59,7 +59,7 @@ class Navigation extends React.Component {
           <ul className="navbar-nav mr-auto">
             
             <NavItem path="/home" name="Home" />
-            <NavItem path="/Features" name="Features" />
+            <NavItem path="/DataQuality" name="Data Quality" />
             <NavItem path="/About" name="About" />
             <NavItem path="/FAQ" name="FAQ" />
 

@@ -11,3 +11,75 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
+
+.aboutMND{
+
+  background-color: #ffe6e6;
+  margin: 0.5%;
+  border-radius: 10px;
+  border-style: solid;
+  border-width: 2px;
+  position: relative;
+  text-align: left;
+  float: left;
+  padding: 1%;
+  transition: transform .2s; /* Animation */
+  max-width: 32%;
+
+}
+.aboutMND:hover {
+  transform: scale(1.02); /* (150% zoom - Note: if the zoom is too large, it will go outside of the viewport) */
+}
+
+.aboutModel{
+
+  background-color: #fff4e6;
+  margin: 0.5%;
+  border-radius: 10px;
+  border-style: solid;
+  border-width: 2px;
+  text-align: left;
+  float: left;
+  position: relative;
+  padding: 1%;
+  transition: transform .2s; /* Animation */
+  max-width: 32%;
+
+}
+.aboutModel:hover {
+  transform: scale(1.02); /* (150% zoom - Note: if the zoom is too large, it will go outside of the viewport) */
+}
+
+.aboutContribution{
+  
+  background-color: #e9ffe6;
+  margin: 0.5%;
+  border-radius: 10px;
+  border-style: solid;
+  position: relative;
+  float: left;
+  border-width: 2px;
+  text-align: left;
+  padding: 1%;
+  transition: transform .2s; /* Animation */
+  max-width: 32%;
+
+}
+.aboutContribution:hover {
+  transform: scale(1.02); /* (150% zoom - Note: if the zoom is too large, it will go outside of the viewport) */
+}
+
+.smallChart{
+  max-width: 500px;
+  max-height: 500px;
+  background-color: #fff4e6;
+  margin: 10px;
+}
+
+.largeChart{
+  max-width: 1000px;
+  max-height: 1000px;
+  background-color: #f4fdf1;
+  margin: 10px;
+}
+

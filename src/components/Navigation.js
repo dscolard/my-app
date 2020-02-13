@@ -49,35 +49,37 @@ class Navigation extends React.Component {
   render() {
     
     return (
-      <nav className="navbar navbar-expand-lg navbar-dark bg-dark">
-        <a className="navbar-brand" href="/">MND Research</a>
-        <button className="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-          <span className="navbar-toggler-icon"></span>
-        </button>
+      <div>
+        <nav className="navbar navbar-expand-lg navbar-light bg-light">
+          <a className="navbar-brand" href="/">MND Research</a>
+          <button className="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span className="navbar-toggler-icon"></span>
+          </button>
 
-        <div className="collapse navbar-collapse" id="navbarSupportedContent">
-          <ul className="navbar-nav mr-auto">
-            
-            <NavItem path="/home" name="Home" />
-            <NavItem path="/DataQuality" name="Data Quality" />
-            <NavItem path="/About" name="About" />
-            <NavItem path="/FAQ" name="FAQ" />
+          <div className="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul className="navbar-nav mr-auto">
+              
+              <NavItem path="/home" name="Home" />
+              <NavItem path="/DataQuality" name="Data Quality" />
+              <NavItem path="/About" name="About" />
+              <NavItem path="/FAQ" name="FAQ" />
 
-            
-              <NavDropdown name="Profile">
-                <a className="dropdown-item" href="/">Settings</a>
-                <a className="dropdown-item" href="/">Help</a>
-                <div className="dropdown-divider"></div>
-                <a className="dropdown-item" href="/">Sign Out</a>
-              </NavDropdown>
-            
-          </ul>
-          <form className="form-inline my-2 my-lg-0">
-            <input className="form-control mr-sm-2" type="search" placeholder="Search or jump to..." aria-label="Search" />
-            <button className="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
-          </form>
-        </div>
-      </nav>
+              
+                <NavDropdown name="Profile">
+                  <a className="dropdown-item" href="/">Settings</a>
+                  <a className="dropdown-item" href="/">Help</a>
+                  <div className="dropdown-divider"></div>
+                  <a className="dropdown-item" href="/">Sign Out</a>
+                </NavDropdown>
+              
+            </ul>
+            <form className="form-inline my-2 my-lg-0">
+              <input className="form-control mr-sm-2" type="search" placeholder="Search or jump to..." aria-label="Search" />
+              <button className="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+            </form>
+          </div>
+        </nav>
+      </div>
     )
   }
 }

@@ -1,5 +1,6 @@
 import React from 'react'
 import Chart from './Chart'
+import Sidebar from './Sidebar';
 
 
 class Features extends React.Component {
@@ -56,7 +57,36 @@ class Features extends React.Component {
 
   render() {
     return(
-      <Chart chartData={this.state.chartData}/>
+      <div>
+      <Sidebar/>
+      <div style={{position:"relative", marginLeft:'10%',width:'95%'}}>
+
+        <div class='topLeft'>
+          <Chart chartType="pie" chartData={this.state.chartData}/>
+        </div>
+
+        <div class='topMiddle'>
+          <Chart chartType="bar" chartData={this.state.chartData}/>
+        </div>
+
+        <div class='topRight'>
+          <Chart chartType="pie" chartData={this.state.chartData}/>
+        </div>
+
+        <div class='centreLeft'>
+          Side Component
+        </div>
+
+        <div class='mainDisplay'>
+          <Chart chartType="line" chartData={this.state.chartData}/>
+        </div>
+
+        <div class='bottomBar'>
+          Bottom Bar
+        </div>
+        
+      </div>
+      </div>
     );
   }
 }

@@ -13,73 +13,161 @@ code {
 }
 
 .aboutMND{
-
   background-color: #ffe6e6;
-  margin: 0.5%;
-  border-radius: 10px;
-  border-style: solid;
-  border-width: 2px;
+  margin-left: 2%;
+  margin-bottom: 2%;
+  margin-top: 20px;
+  box-shadow: 1px 2px 4px rgba(0, 0, 0, .5);
+
   position: relative;
   text-align: left;
   float: left;
   padding: 1%;
   transition: transform .2s; /* Animation */
-  max-width: 32%;
-
+  width: 31%;
 }
 .aboutMND:hover {
   transform: scale(1.02); /* (150% zoom - Note: if the zoom is too large, it will go outside of the viewport) */
 }
 
 .aboutModel{
-
   background-color: #fff4e6;
-  margin: 0.5%;
-  border-radius: 10px;
-  border-style: solid;
-  border-width: 2px;
+  margin-left: 1%;
+  margin-top: 20px;
+  box-shadow: 1px 2px 4px rgba(0, 0, 0, .5);
   text-align: left;
   float: left;
   position: relative;
   padding: 1%;
   transition: transform .2s; /* Animation */
-  max-width: 32%;
-
+  width: 31%;
 }
 .aboutModel:hover {
   transform: scale(1.02); /* (150% zoom - Note: if the zoom is too large, it will go outside of the viewport) */
 }
 
 .aboutContribution{
-  
   background-color: #e9ffe6;
-  margin: 0.5%;
-  border-radius: 10px;
-  border-style: solid;
+  margin-left: 1%;
+  box-shadow: 1px 2px 4px rgba(0, 0, 0, .5);
   position: relative;
   float: left;
-  border-width: 2px;
   text-align: left;
+  margin-top: 20px;
   padding: 1%;
   transition: transform .2s; /* Animation */
-  max-width: 32%;
-
+  width: 31%;
 }
+
 .aboutContribution:hover {
   transform: scale(1.02); /* (150% zoom - Note: if the zoom is too large, it will go outside of the viewport) */
 }
 
-.smallChart{
-  max-width: 500px;
-  max-height: 500px;
+.topLeft{
+  width: 25%;
+  height: 200px;
   background-color: #fff4e6;
-  margin: 10px;
+  margin-left: 5%;
+  margin-top: 2%;
+  padding: 10px;
+  position: relative;
+  float: left;
+  box-shadow: 1px 2px 4px rgba(0, 0, 0, .5);
 }
 
-.largeChart{
-  max-width: 1000px;
-  max-height: 1000px;
-  background-color: #f4fdf1;
-  margin: 10px;
+.topMiddle{
+  width: 25%;
+  height: 200px;
+  margin-left: 5%;
+  margin-top: 2%;
+  padding: 10px;
+  background-color: #fff4e6;
+  position: relative;
+  float: left;
+  box-shadow: 1px 2px 4px rgba(0, 0, 0, .5);
 }
 
+.topRight{
+  width: 25%;
+  height: 200px;
+  background-color: #fff4e6;
+  margin-left: 5%;
+  margin-top: 2%;  
+  padding: 10px;
+  box-shadow: 1px 2px 4px rgba(0, 0, 0, .5);
+  position: relative;
+  float: left;
+}
+
+.centreLeft{
+  width: 25%;
+  height: 400px;
+  background-color: #fff4e6;
+  margin-left: 5%;
+  margin-top: 2%;  
+  padding: 10px;
+  box-shadow: 1px 2px 4px rgba(0, 0, 0, .5);
+  position: relative;
+  float: left;
+}
+
+.mainDisplay{
+  width: 55%;
+  height: 400px;
+  background-color: #fff4e6;
+  margin-left: 5%;
+  margin-top: 2%;  
+  padding: 10px;
+  box-shadow: 1px 2px 4px rgba(0, 0, 0, .5);
+  position: relative;
+  float: left;
+}
+
+.bottomBar{
+  width: 85%;
+  height: 60px;
+  background-color: #fff4e6;
+  margin-left: 5%;
+  margin-top: 2%;  
+  margin-bottom: 2.5%;
+  padding: 10px;
+  box-shadow: 1px 2px 4px rgba(0, 0, 0, .5);
+  position: relative;
+  float: left;
+}
+
+.sidenav {
+  height: 100%;
+  margin-top: 50px;
+  width: 160px;
+  position: absolute;
+  z-index: 1;
+  top: 0;
+  left: 0;
+  background-color: rgb(250, 250, 250);
+  overflow-x: hidden;
+  padding-top: 20px;
+}
+
+.sidenav a {
+  padding: 6px 8px 6px 16px;
+  text-decoration: none;
+  font-size: 25px;
+  color: #333333;
+  display: block;
+}
+
+.sidenav a:hover {
+  color: #333333;
+}
+
+.main {
+  margin-left: 160px; /* Same as the width of the sidenav */
+  font-size: 28px; /* Increased text to enable scrolling */
+  padding: 0px 10px;
+}
+
+@media screen and (max-height: 450px) {
+  .sidenav {padding-top: 15px;}
+  .sidenav a {font-size: 18px;}
+}

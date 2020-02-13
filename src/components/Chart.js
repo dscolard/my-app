@@ -13,62 +13,81 @@ class Chart extends Component{
     static defaultProps = {
         displayLegend: false,
         displayTitle: true,
-        legendPosition: "right"
+        legendPosition: "right",
+        chartType: "bar"
     }
 
     render(){
-        return(
-        <div>
-            <div className='chart' class='smallChart'>
-                <Bar
-                    data={this.state.chartData}
-                    options={{
-                        title:{
-                            display:this.props.displayTitle,
-                            text:'Completeness',
-                            fontSize:25
-                        },
-                        legend:{
-                            display:this.props.displayLegend,
-                            position:this.props.legendPosition
-                        }
-                    }}
-                />
-            </div>
-            <div class='largeChart'>
-                <Line
-                    data={this.state.chartData}
-                    options={{
-                        title:{
-                            display:this.props.displayTitle,
-                            text:'Completeness',
-                            fontSize:25
-                        },
-                        legend:{
-                            display:this.props.displayLegend,
-                            position:this.props.legendPosition
-                        }
-                    }}
-                />
-            </div>
-            <div class='smallChart'>
-                <Pie
-                    data={this.state.chartData}
-                    options={{
-                        title:{
-                            display:this.props.displayTitle,
-                            text:'Completeness',
-                            fontSize:25
-                        },
-                        legend:{
-                            display:this.props.displayLegend,
-                            position:this.props.legendPosition
-                        }
-                    }}
-                />
-            </div>
-        </div>
-        )
+        if(this.props.chartType=="bar"){
+            return(
+                <div>
+                    <div className='chart' >
+                        <Bar
+                            data={this.state.chartData}
+                            options={{
+                                title:{
+                                    display:this.props.displayTitle,
+                                    text:'Completeness',
+                                    fontSize:25,
+                                    maintainAspectRatio: false
+                                },
+                                legend:{
+                                    display:this.props.displayLegend,
+                                    position:this.props.legendPosition
+                                }
+                            }}
+                        />
+                    </div>
+                </div>
+
+            );
+        }
+        else if(this.props.chartType=="line"){
+            return(
+                <div>
+                    <div className='chart' >
+                        <Line
+                            data={this.state.chartData}
+                            options={{
+                                title:{
+                                    display:this.props.displayTitle,
+                                    text:'Completeness',
+                                    fontSize:25,
+                                    maintainAspectRatio: true
+                                },
+                                legend:{
+                                    display:this.props.displayLegend,
+                                    position:this.props.legendPosition
+                                }
+                            }}
+                        />
+                    </div>
+                </div>
+            );
+        }
+        else if(this.props.chartType=="pie"){
+            return(
+                <div>
+                    <div className='chart' >
+                        <Pie
+                            data={this.state.chartData}
+                            options={{
+                                title:{
+                                    display:this.props.displayTitle,
+                                    text:'Completeness',
+                                    fontSize:25,
+                                    maintainAspectRatio: false
+                                },
+                                legend:{
+                                    display:this.props.displayLegend,
+                                    position:this.props.legendPosition
+                                }
+                            }}
+                        />
+                    </div>
+                </div>
+            );
+        }
     }
 }
 

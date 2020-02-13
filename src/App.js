@@ -5,9 +5,6 @@ import Navigation from './components/Navigation';
 
 class App extends Component {
 
-
-  //Manage Data Here
-
   render() {
     return(
       <body>

@@ -3,12 +3,13 @@ import Chart from './Chart'
 import Sidebar from './Sidebar';
 
 
-class Features extends React.Component {
+class DataQuality extends React.Component {
 
   constructor(){
     super();
     this.state = {
-      chartData:{}
+      chartData:{},
+      title:''
     }
   }
 
@@ -16,16 +17,19 @@ class Features extends React.Component {
     this.getChartData();
   }
 
-  getChartData(){
 
-    //Pull API data here
+  getChartData(metric){
+
+    //Pull API data here for title and chartData
 
     this.setState({
+
+      title: metric,
+
       chartData:{
         labels:['One', 'Two', 'Three', 'Four', 'Five', 'Six', 'Seven', 'Eight'],
         datasets:[
             {
-                label:'Completeness',
                 data:[
                       78,
                       98,
@@ -56,38 +60,63 @@ class Features extends React.Component {
 
 
   render() {
+
+
     return(
       <div>
-      <Sidebar/>
-      <div style={{position:"relative", marginLeft:'10%',width:'95%'}}>
 
-        <div class='topLeft'>
-          <Chart chartType="pie" chartData={this.state.chartData}/>
+        <div class='sidenav'>  
+          <a href='#timeliness' onClick={() => {this.getChartData("Timeliness")}}>
+            Timeliness
+          </a>
+          <a href='#completeness' onClick={() => {this.getChartData("Completeness")}}>
+            Completeness
+          </a>          
+          <a href='#consistency' onClick={() => {this.getChartData("Consistency")}}>
+            Consistency
+          </a>          
+          <a href='#validity' onClick={() => {this.getChartData("Validity")}}>
+            Validity
+          </a>          
+          <a href='#accuracy' onClick={() => {this.getChartData("Accuracy")}}>
+            Accuracy
+          </a>
+          <a href='#uniqueness' onClick={() => {this.getChartData("Uniqueness")}}>
+            Uniqueness
+          </a>
         </div>
 
-        <div class='topMiddle'>
-          <Chart chartType="bar" chartData={this.state.chartData}/>
-        </div>
-
-        <div class='topRight'>
-          <Chart chartType="pie" chartData={this.state.chartData}/>
-        </div>
-
-        <div class='centreLeft'>
-          Side Component
-        </div>
-
-        <div class='mainDisplay'>
-          <Chart chartType="line" chartData={this.state.chartData}/>
-        </div>
-
-        <div class='bottomBar'>
-          Bottom Bar
-        </div>
         
-      </div>
+
+        <div style={{position:"relative", marginLeft:'10%',width:'95%',height:'100%'}}>
+
+          <div class='topLeft'>
+            <Chart chartType="pie" text={this.state.title} chartData={this.state.chartData} height={'180%'}/>
+          </div>
+
+          <div class='topMiddle'>
+            <Chart chartType="horizontalBar" text={this.state.title} chartData={this.state.chartData} height={'180%'}/>
+          </div>
+
+          <div class='topRight'>
+            <Chart chartType="polar" text={this.state.title} chartData={this.state.chartData} height={'180%'}/>
+          </div>
+
+          <div class='centreLeft'>
+            <Chart chartType="bar" text={this.state.title} chartData={this.state.chartData} height={'350%'}/>
+          </div>
+
+          <div class='mainDisplay'>
+            <Chart chartType="line" text={this.state.title} chartData={this.state.chartData} height={'350%'}/>
+          </div>
+
+          <div class='infoBar'>
+            Bottom Bar
+          </div>
+          
+        </div>
       </div>
     );
   }
 }
-export default Features
+export default DataQuality

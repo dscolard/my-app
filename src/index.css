@@ -123,7 +123,7 @@ code {
   float: left;
 }
 
-.bottomBar{
+.infoBar{
   width: 85%;
   height: 60px;
   background-color: #fff4e6;
@@ -140,19 +140,21 @@ code {
   height: 100%;
   margin-top: 50px;
   width: 160px;
+  background-color: rgb(248, 248, 248);
   position: absolute;
   z-index: 1;
   top: 0;
   left: 0;
-  background-color: rgb(250, 250, 250);
+  box-shadow: 1px 2px 4px rgba(0, 0, 0, .5);
   overflow-x: hidden;
   padding-top: 20px;
+  z-index: -1;
 }
 
 .sidenav a {
   padding: 6px 8px 6px 16px;
   text-decoration: none;
-  font-size: 25px;
+  font-size: 20px;
   color: #333333;
   display: block;
 }

@@ -8,7 +8,7 @@ class App extends Component {
   render() {
     return(
       <body>
-        <div><Navigation/></div>        
+        <div><Navigation/></div>
       </body>
     ) ; 
   }

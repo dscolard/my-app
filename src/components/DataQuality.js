@@ -66,12 +66,12 @@ class DataQuality extends React.Component {
       <div>
 
         <div class='sidenav'>  
-          <a href='#timeliness' onClick={() => {this.getChartData("Timeliness")}}>
-            Timeliness
-          </a>
           <a href='#completeness' onClick={() => {this.getChartData("Completeness")}}>
             Completeness
-          </a>          
+          </a>  
+          <a href='#timeliness' onClick={() => {this.getChartData("Timeliness")}}>
+            Timeliness
+          </a>        
           <a href='#consistency' onClick={() => {this.getChartData("Consistency")}}>
             Consistency
           </a>          

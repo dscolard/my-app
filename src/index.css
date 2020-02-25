@@ -1,69 +1,75 @@
 body {
   margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen",
+    "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue",
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
 
 code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
+  font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
     monospace;
 }
 
-.aboutMND{
+.aboutMND {
   background-color: #ffe6e6;
   margin-left: 2%;
   margin-bottom: 2%;
   margin-top: 20px;
-  box-shadow: 1px 2px 4px rgba(0, 0, 0, .5);
+  box-shadow: 1px 2px 4px rgba(0, 0, 0, 0.5);
 
   position: relative;
   text-align: left;
   float: left;
   padding: 1%;
-  transition: transform .2s; /* Animation */
+  transition: transform 0.2s; /* Animation */
   width: 31%;
 }
 .aboutMND:hover {
-  transform: scale(1.02); /* (150% zoom - Note: if the zoom is too large, it will go outside of the viewport) */
+  transform: scale(
+    1.02
+  ); /* (150% zoom - Note: if the zoom is too large, it will go outside of the viewport) */
 }
 
-.aboutModel{
+.aboutModel {
   background-color: #fff4e6;
   margin-left: 1%;
   margin-top: 20px;
-  box-shadow: 1px 2px 4px rgba(0, 0, 0, .5);
+  box-shadow: 1px 2px 4px rgba(0, 0, 0, 0.5);
   text-align: left;
   float: left;
   position: relative;
   padding: 1%;
-  transition: transform .2s; /* Animation */
+  transition: transform 0.2s; /* Animation */
   width: 31%;
 }
 .aboutModel:hover {
-  transform: scale(1.02); /* (150% zoom - Note: if the zoom is too large, it will go outside of the viewport) */
+  transform: scale(
+    1.02
+  ); /* (150% zoom - Note: if the zoom is too large, it will go outside of the viewport) */
 }
 
-.aboutContribution{
+.aboutContribution {
   background-color: #e9ffe6;
   margin-left: 1%;
-  box-shadow: 1px 2px 4px rgba(0, 0, 0, .5);
+  box-shadow: 1px 2px 4px rgba(0, 0, 0, 0.5);
   position: relative;
   float: left;
   text-align: left;
   margin-top: 20px;
   padding: 1%;
-  transition: transform .2s; /* Animation */
+  transition: transform 0.2s; /* Animation */
   width: 31%;
 }
 
 .aboutContribution:hover {
-  transform: scale(1.02); /* (150% zoom - Note: if the zoom is too large, it will go outside of the viewport) */
+  transform: scale(
+    1.02
+  ); /* (150% zoom - Note: if the zoom is too large, it will go outside of the viewport) */
 }
 
-.topLeft{
+.topLeft {
   width: 25%;
   height: 200px;
   background-color: #fff4e6;
@@ -72,10 +78,10 @@ code {
   padding: 10px;
   position: relative;
   float: left;
-  box-shadow: 1px 2px 4px rgba(0, 0, 0, .5);
+  box-shadow: 1px 2px 4px rgba(0, 0, 0, 0.5);
 }
 
-.topMiddle{
+.topMiddle {
   width: 25%;
   height: 200px;
   margin-left: 5%;
@@ -84,54 +90,54 @@ code {
   background-color: #fff4e6;
   position: relative;
   float: left;
-  box-shadow: 1px 2px 4px rgba(0, 0, 0, .5);
+  box-shadow: 1px 2px 4px rgba(0, 0, 0, 0.5);
 }
 
-.topRight{
+.topRight {
   width: 25%;
   height: 200px;
   background-color: #fff4e6;
   margin-left: 5%;
-  margin-top: 2%;  
+  margin-top: 2%;
   padding: 10px;
-  box-shadow: 1px 2px 4px rgba(0, 0, 0, .5);
+  box-shadow: 1px 2px 4px rgba(0, 0, 0, 0.5);
   position: relative;
   float: left;
 }
 
-.centreLeft{
+.centreLeft {
   width: 25%;
   height: 400px;
   background-color: #fff4e6;
   margin-left: 5%;
-  margin-top: 2%;  
+  margin-top: 2%;
   padding: 10px;
-  box-shadow: 1px 2px 4px rgba(0, 0, 0, .5);
+  box-shadow: 1px 2px 4px rgba(0, 0, 0, 0.5);
   position: relative;
   float: left;
 }
 
-.mainDisplay{
+.mainDisplay {
   width: 55%;
   height: 400px;
   background-color: #fff4e6;
   margin-left: 5%;
-  margin-top: 2%;  
+  margin-top: 2%;
   padding: 10px;
-  box-shadow: 1px 2px 4px rgba(0, 0, 0, .5);
+  box-shadow: 1px 2px 4px rgba(0, 0, 0, 0.5);
   position: relative;
   float: left;
 }
 
-.infoBar{
+.infoBar {
   width: 85%;
   height: 60px;
   background-color: #fff4e6;
   margin-left: 5%;
-  margin-top: 2%;  
+  margin-top: 2%;
   margin-bottom: 2.5%;
   padding: 10px;
-  box-shadow: 1px 2px 4px rgba(0, 0, 0, .5);
+  box-shadow: 1px 2px 4px rgba(0, 0, 0, 0.5);
   position: relative;
   float: left;
 }
@@ -145,7 +151,7 @@ code {
   z-index: 1;
   top: 0;
   left: 0;
-  box-shadow: 1px 2px 4px rgba(0, 0, 0, .5);
+  box-shadow: 1px 2px 4px rgba(0, 0, 0, 0.5);
   overflow-x: hidden;
   padding-top: 20px;
   z-index: -1;
@@ -170,6 +176,10 @@ code {
 }
 
 @media screen and (max-height: 450px) {
-  .sidenav {padding-top: 15px;}
-  .sidenav a {font-size: 18px;}
+  .sidenav {
+    padding-top: 15px;
+  }
+  .sidenav a {
+    font-size: 18px;
+  }
 }

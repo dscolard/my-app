@@ -63,9 +63,8 @@ class Navigation extends React.Component {
     return (
       <div>
         <nav className="navbar navbar-expand-lg navbar-light bg-light">
-          <a className="navbar-brand" href="/">
-            MND Research
-          </a>
+          <img src="adapt.png" />
+
           <button
             className="navbar-toggler"
             type="button"
@@ -80,12 +79,12 @@ class Navigation extends React.Component {
 
           <div className="collapse navbar-collapse" id="navbarSupportedContent">
             <ul className="navbar-nav mr-auto">
-              <NavItem path="/home" name="Home" />
-              <NavItem path="/DataQuality" name="Data Quality" />
+              {/* <NavItem path="/home" name="Home" /> */}
+              <NavItem path="/Metrics" name="Metrics" />
+              <NavItem path="/DataQuality" name="Dashboard" />
               <NavItem path="/About" name="About" />
-              <NavItem path="/FAQ" name="FAQ" />
 
-              <NavDropdown name="Profile">
+              {/* <NavDropdown name="Profile">
                 <a className="dropdown-item" href="/">
                   Settings
                 </a>
@@ -96,8 +95,9 @@ class Navigation extends React.Component {
                 <a className="dropdown-item" href="/">
                   Sign Out
                 </a>
-              </NavDropdown>
+              </NavDropdown> */}
             </ul>
+
             <form className="form-inline my-2 my-lg-0">
               <input
                 className="form-control mr-sm-2"

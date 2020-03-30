@@ -12,6 +12,44 @@ code {
     monospace;
 }
 
+.metricContainer {
+  background-color: rgb(255, 255, 255);
+  margin-top: 20px;
+  position: relative;
+  float: left;
+  padding: 1%;
+  width: 100%;
+}
+
+.fade-appear {
+  opacity: 0;
+  z-index: 10;
+}
+.fade-appear.fade-appear-active {
+  opacity: 1;
+  transition: opacity 500ms linear;
+}
+
+.fade-exit {
+  opacity: 1;
+}
+.fade-exit.fade-exit-active {
+  opacity: 0;
+  transition: opacity 300ms linear;
+}
+.fade-exit-done {
+  opacity: 0;
+}
+
+.fade-enter {
+  opacity: 0;
+  z-index: 1;
+}
+.fade-enter.fade-enter-active {
+  opacity: 1;
+  transition: opacity 300ms linear;
+}
+
 .aboutMND {
   background-color: #ffe6e6;
   margin-left: 2%;
@@ -34,7 +72,7 @@ code {
 
 .aboutModel {
   background-color: #fff4e6;
-  margin-left: 1%;
+  margin-left: 1.5%;
   margin-top: 20px;
   box-shadow: 1px 2px 4px rgba(0, 0, 0, 0.5);
   text-align: left;
@@ -44,6 +82,7 @@ code {
   transition: transform 0.2s; /* Animation */
   width: 31%;
 }
+
 .aboutModel:hover {
   transform: scale(
     1.02
@@ -52,10 +91,10 @@ code {
 
 .aboutContribution {
   background-color: #e9ffe6;
-  margin-left: 1%;
+  margin-right: 2%;
   box-shadow: 1px 2px 4px rgba(0, 0, 0, 0.5);
   position: relative;
-  float: left;
+  float: right;
   text-align: left;
   margin-top: 20px;
   padding: 1%;
@@ -72,12 +111,25 @@ code {
 .topLeft {
   width: 25%;
   height: 200px;
-  background-color: #fff4e6;
+  background-color: #efffeb;
   margin-left: 5%;
   margin-top: 2%;
   padding: 10px;
   position: relative;
   float: left;
+  box-shadow: 1px 2px 4px rgba(0, 0, 0, 0.5);
+}
+
+.box {
+  width: 96%;
+  background-color: #f9fffa;
+  margin-left: 2%;
+  margin-top: 20px;
+
+  padding: 10px;
+  position: relative;
+  float: left;
+  font-size: 1.4pc;
   box-shadow: 1px 2px 4px rgba(0, 0, 0, 0.5);
 }
 
@@ -103,6 +155,14 @@ code {
   box-shadow: 1px 2px 4px rgba(0, 0, 0, 0.5);
   position: relative;
   float: left;
+}
+
+.hoverAnimation {
+  transition: transform 0.2s; /* Animation */
+}
+
+.hoverAnimation:hover {
+  transform: scale(1.08);
 }
 
 .centreLeft {
@@ -140,6 +200,8 @@ code {
   box-shadow: 1px 2px 4px rgba(0, 0, 0, 0.5);
   position: relative;
   float: left;
+  font-weight: bold;
+  font-family: "Courier New", Courier, monospace;
 }
 
 .sidenav {
@@ -182,4 +244,9 @@ code {
   .sidenav a {
     font-size: 18px;
   }
+}
+
+.myfont {
+  font-family: "Times New Roman", Times, serif;
+  font-size: 18px;
 }

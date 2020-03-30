@@ -14,15 +14,16 @@ class Chart extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      chartData: props.chartData,
       height: props.height,
-      width: props.width
+      width: props.width,
+      chartData: props.chartData
     };
   }
 
   static defaultProps = {
     displayLegend: false,
     displayTitle: true,
+    chartData: {},
     text: "Completeness",
     legendPosition: "right",
     chartType: "bar"
@@ -34,7 +35,7 @@ class Chart extends Component {
         <div>
           <div className="chart">
             <Bar
-              data={this.state.chartData}
+              data={this.props.chartData}
               width={this.state.width}
               height={this.state.height}
               options={{
@@ -59,7 +60,7 @@ class Chart extends Component {
         <div>
           <div className="chart">
             <Line
-              data={this.state.chartData}
+              data={this.props.chartData}
               width={this.state.width}
               height={this.state.height}
               options={{
@@ -84,7 +85,7 @@ class Chart extends Component {
         <div>
           <div className="chart">
             <Pie
-              data={this.state.chartData}
+              data={this.props.chartData}
               width={this.state.width}
               height={this.state.height}
               options={{
@@ -104,12 +105,12 @@ class Chart extends Component {
           </div>
         </div>
       );
-    } else if (this.props.chartType == "polar") {
+    } else if (this.props.chartType == "doughnut") {
       return (
         <div>
           <div className="chart">
-            <Polar
-              data={this.state.chartData}
+            <Doughnut
+              data={this.props.chartData}
               width={this.state.width}
               height={this.state.height}
               options={{
@@ -134,7 +135,7 @@ class Chart extends Component {
         <div>
           <div className="chart">
             <HorizontalBar
-              data={this.state.chartData}
+              data={this.props.chartData}
               width={this.state.width}
               height={this.state.height}
               options={{

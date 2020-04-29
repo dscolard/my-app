@@ -15,9 +15,9 @@ def run():
 
 	# -- Select relevant Data -- #
 
-	clinical_data_df = df[['Sample ID', 'DOB', 'Date of Onset', 'Site of onset', 'El Escorial', 'Date of Diagnosis', 'Onset To Diagnosis(months)', 'Onset To Death(months)',
+	clinical_data_df = df[['Sample ID', 'DOB', 'Date of Onset', 'Site of onset', 
+	'El Escorial', 'Date of Diagnosis', 'Onset To Diagnosis(months)', 'Onset To Death(months)',
 	'Diagnosis to Death(months)','Date of Death','Does the patient have dementia?','C9orf72 Repeat Expansion']];
-
 
 
 	# -- Count missing cells -- #
@@ -32,6 +32,7 @@ def run():
 	empty_cells_by_row['Completeness %'] = 100-(df.isnull().sum(axis=1)/len(df)*100);
 
 	print('\n\nEmpty cells per patient:\n',empty_cells_by_row ,'\n\nEmpty cells by data category:\n',variableMetaData,'\n\n');
+
 
 
 	# -- Timeliness -- #
@@ -79,9 +80,19 @@ def run():
 
 	for ind in clinical_data_df.index:
 
+
+		# -- Date of Birth -- #
+		r = re.compile('[0-3][0-9]/[0-1][0-9]/[1-2][0-9][0-9][0-9]')
+		if (r.match(clinical_data_df['DOB'][ind])):
+			pass
+		else:
+			totalErrors+=1;
+			DOBErrors += 1;
+			
 		# -- Site of onset -- #
 		if ((clinical_data_df['Site of onset'][ind] == 'Spinal') or (clinical_data_df['Site of onset'][ind] == 'Bulbar') 
-			or (clinical_data_df['Site of onset'][ind] == "Cognitive/Behavioural and Spinal") or (pd.isna(clinical_data_df['Site of onset'][ind]))):
+			or (clinical_data_df['Site of onset'][ind] == "Cognitive/Behavioural") or 
+			(clinical_data_df['Site of onset'][ind] == "Thoracic/Respiratory") or (pd.isna(clinical_data_df['Site of onset'][ind]))):
 			pass
 		else:
 			totalErrors+=1;
@@ -89,8 +100,10 @@ def run():
 
 	
 		# -- El Escorial-- #
-		if ((clinical_data_df['El Escorial'][ind] == 'Definite') or (clinical_data_df['El Escorial'][ind] == 'Probable') or (clinical_data_df['El Escorial'][ind] == "Possible") 
-			or (clinical_data_df['El Escorial'][ind] == "Lab Supported Probable") or (pd.isna(clinical_data_df['El Escorial'][ind]))):
+		if ((clinical_data_df['El Escorial'][ind] == 'Definite') or (clinical_data_df['El Escorial'][ind] == 'Probable') or 
+			(clinical_data_df['El Escorial'][ind] == "Possible") 
+			or (clinical_data_df['El Escorial'][ind] == "Lab Supported Probable") or (clinical_data_df['El Escorial'][ind] == "Suspected") or 
+			(pd.isna(clinical_data_df['El Escorial'][ind]))):
 			pass
 		else:
 			totalErrors+=1;
@@ -109,7 +122,8 @@ def run():
 
 	
 		# -- C9orf72 Repeat Expansion -- #
-		if ((clinical_data_df['C9orf72 Repeat Expansion'][ind] == bool(False)) or (clinical_data_df['C9orf72 Repeat Expansion'][ind] == bool(True)) or
+		if ((clinical_data_df['C9orf72 Repeat Expansion'][ind] == bool(False)) or 
+			(clinical_data_df['C9orf72 Repeat Expansion'][ind] == bool(True)) or
 		 (pd.isna(clinical_data_df['C9orf72 Repeat Expansion'][ind]))):
 			pass
 		else:
@@ -118,22 +132,18 @@ def run():
 
 
 		# -- Does the patient have dementia? -- #
-		if ((clinical_data_df['Does the patient have dementia?'][ind] == bool(False)) or (clinical_data_df['Does the patient have dementia?'][ind] == bool(True)) or
+		if ((clinical_data_df['Does the patient have dementia?'][ind] == bool(False)) or 
+			(clinical_data_df['Does the patient have dementia?'][ind] == bool(True)) or
 		 (pd.isna(clinical_data_df['Does the patient have dementia?'][ind]))):
 			pass
 		else:
 			totalErrors+=1;
 			dementiaErrors +=1;
 
-		# -- Date of Birth -- #
-		r = re.compile('[0-3][0-9]/[0-1][0-9]/[1-2][0-9][0-9][0-9]')
-		if (r.match(clinical_data_df['DOB'][ind])):
-			pass
-		else:
-			totalErrors+=1;
-			DOBErrors += 1;
+
 	
-	variableMetaData.insert(2, "Errors", [0, DOBErrors, 0, 0, siteOfOnsetErrors, elEscorialErrors, 0, onsetToDiganosisErrors, 0, 0, 0, dementiaErrors, C9orf72Errors], True) 
+	variableMetaData.insert(2, "Errors", [0, DOBErrors, 0, 0, siteOfOnsetErrors, elEscorialErrors, 0, 
+		onsetToDiganosisErrors, 0, 0, 0, dementiaErrors, C9orf72Errors], True) 
 	print(variableMetaData)
 
 

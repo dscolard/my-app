@@ -1,6 +1,6 @@
 import React from "react";
 
-const NavItem = props => {
+const NavItem = (props) => {
   const pageURI = window.location.pathname + window.location.search;
   const liClassName = props.path === pageURI ? "nav-item active" : "nav-item";
   const aClassName = props.disabled ? "nav-link disabled" : "nav-link";
@@ -22,13 +22,13 @@ class NavDropdown extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      isToggleOn: false
+      isToggleOn: false,
     };
   }
   showDropdown(e) {
     e.preventDefault();
-    this.setState(prevState => ({
-      isToggleOn: !prevState.isToggleOn
+    this.setState((prevState) => ({
+      isToggleOn: !prevState.isToggleOn,
     }));
   }
   render() {
@@ -44,7 +44,7 @@ class NavDropdown extends React.Component {
           data-toggle="dropdown"
           aria-haspopup="true"
           aria-expanded="false"
-          onClick={e => {
+          onClick={(e) => {
             this.showDropdown(e);
           }}
         >
@@ -61,9 +61,13 @@ class NavDropdown extends React.Component {
 class Navigation extends React.Component {
   render() {
     return (
-      <div>
+      <div style={{ height: "38px" }}>
         <nav className="navbar navbar-expand-lg navbar-light bg-light">
-          <img src="adapt.png" />
+          <div>
+            <img src="adapt.png" />
+            <img src="HSE-Logo.png" style={{ marginRight: "20px" }} />
+            <img src="future.png" style={{ marginRight: "20px" }} />
+          </div>
 
           <button
             className="navbar-toggler"
@@ -81,21 +85,8 @@ class Navigation extends React.Component {
             <ul className="navbar-nav mr-auto">
               {/* <NavItem path="/home" name="Home" /> */}
               <NavItem path="/Metrics" name="Metrics" />
-              <NavItem path="/DataQuality" name="Dashboard" />
               <NavItem path="/About" name="About" />
-
-              {/* <NavDropdown name="Profile">
-                <a className="dropdown-item" href="/">
-                  Settings
-                </a>
-                <a className="dropdown-item" href="/">
-                  Help
-                </a>
-                <div className="dropdown-divider"></div>
-                <a className="dropdown-item" href="/">
-                  Sign Out
-                </a>
-              </NavDropdown> */}
+              <NavItem path="/References" name="References" />
             </ul>
 
             <form className="form-inline my-2 my-lg-0">

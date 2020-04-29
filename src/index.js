@@ -9,15 +9,15 @@ import { CSSTransition, TransitionGroup } from "react-transition-group";
 // eslint-disable-next-line
 import { Route, Link, BrowserRouter as Router } from "react-router-dom";
 import About from "./components/About";
-import Features from "./components/DataQuality";
 import Metrics from "./components/Metrics";
+import References from "./components/References";
 
 const routing = (
   <Router>
     <Route path="/" component={App} />
     <Route exact path="/" component={Metrics} />
     <Route path="/About" component={About} />
-    <Route path="/DataQuality" component={Features} />
+    <Route path="/References" component={References} />
     <Route path="/Metrics" component={Metrics} />
   </Router>
 );

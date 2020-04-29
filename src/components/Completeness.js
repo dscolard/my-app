@@ -9,9 +9,9 @@ var chartData = {
       data: [70, 30],
 
       backgroundColor: ["rgba(54,162,235,0.6)", "rgba(255,99,132,0.6)"],
-      borderWidth: 1
-    }
-  ]
+      borderWidth: 1,
+    },
+  ],
 };
 
 var patientData = {
@@ -30,7 +30,7 @@ var patientData = {
     "Samp_12",
     "Samp_13",
     "Samp_14",
-    "Samp_15"
+    "Samp_15",
   ],
   datasets: [
     {
@@ -49,29 +49,30 @@ var patientData = {
         100,
         100,
         73.33,
-        80
+        80,
       ],
 
       backgroundColor: [
-        "rgba(255,99,132,0.6)",
-        "rgba(54,162,235,0.6)",
+        "rgba(200,20,235,0.2)",
         "rgba(255,206,86,0.6)",
         "rgba(75,192,192,0.6)",
         "rgba(153,102,255,0.6)",
         "rgba(255,159,64,0.6)",
         "rgba(200,140,132,0.6)",
         "rgba(60,99,200,0.6)",
+        "rgba(255,99,132,0.6)",
+
         "rgba(10,34,80,0.6)",
         "rgba(54, 72, 28, 0.6)",
         "rgba(67,46,20,0.6)",
         "rgba(83,47,85,0.6)",
         "rgba(255,99,132,0.6)",
         "rgba(54,162,235,0.6)",
-        "rgba(255,206,86,0.6)"
+        "rgba(255,206,86,0.6)",
       ],
-      borderWidth: 1
-    }
-  ]
+      borderWidth: 1,
+    },
+  ],
 };
 
 var SNIPGraph = {
@@ -90,7 +91,7 @@ var SNIPGraph = {
     "Samp_12",
     "Samp_13",
     "Samp_14",
-    "Samp_15"
+    "Samp_15",
   ],
   datasets: [
     {
@@ -111,11 +112,11 @@ var SNIPGraph = {
         "rgba(67,46,20,0.6)",
         "rgba(83,47,85,0.6)",
         "rgba(255,99,132,0.6)",
-        "rgba(54,162,235,0.6)"
+        "rgba(54,162,235,0.6)",
       ],
-      borderWidth: 1
-    }
-  ]
+      borderWidth: 1,
+    },
+  ],
 };
 
 var ALSFRSGraph = {
@@ -134,7 +135,7 @@ var ALSFRSGraph = {
     "Samp_12",
     "Samp_13",
     "Samp_14",
-    "Samp_15"
+    "Samp_15",
   ],
   datasets: [
     {
@@ -155,11 +156,11 @@ var ALSFRSGraph = {
         "rgba(67,46,20,0.6)",
         "rgba(83,47,85,0.6)",
         "rgba(255,99,132,0.6)",
-        "rgba(54,162,235,0.6)"
+        "rgba(54,162,235,0.6)",
       ],
-      borderWidth: 1
-    }
-  ]
+      borderWidth: 1,
+    },
+  ],
 };
 
 var variableData = {
@@ -175,7 +176,7 @@ var variableData = {
     "Diagnosis to Death(months)",
     "Date of Death",
     "Does the patient have dementia?",
-    "C9orf72 Repeat Expansion"
+    "C9orf72 Repeat Expansion",
   ],
   datasets: [
     {
@@ -196,118 +197,167 @@ var variableData = {
         "rgba(67,46,20,0.6)",
         "rgba(83,47,85,0.6)",
         "rgba(255,99,132,0.6)",
-        "rgba(54,162,235,0.6)"
+        "rgba(54,162,235,0.6)",
       ],
-      borderWidth: 1
-    }
-  ]
+      borderWidth: 1,
+    },
+  ],
 };
 
 class Completeness extends Component {
   render() {
     return (
       <div>
-        <h1>Data Quality: Completeness</h1>
-        <hr
-          style={{
-            color: "#000000",
-            backgroundColor: "#000000",
-            height: 0.5,
-            borderColor: "#000000"
-          }}
-        />
-
-        <div className="box">
-          <h3>Definition of Completeness</h3>
-          <p>
-            Completeness is defined as expected comprehensiveness. Data can be
-            complete even if optional data is missing. As long as the data meets
-            the expectations then the data is considered complete. In the case
-            of our dataset, each variable has been carefully selected through
-            the process of backwards elimination, therefore it is reasonable to
-            assume that in our case the data must have values for every data
-            point in order to be considered 100% complete.
-          </p>
+        <div className="sidenav">
+          <a href="#completeness" onClick={() => {}}>
+            Definition
+          </a>
+          <a href="#timeliness" onClick={() => {}}>
+            Examples
+          </a>
+          <a href="#accuracy" onClick={() => {}}>
+            References
+          </a>
         </div>
 
-        <div className="box">
-          <h3>How this applies to our dataset</h3>
-          <p>
-            In the case of our dataset, each variable has been carefully
-            selected through the process of backwards elimination, so we know
-            all the variables are critical for an accurate prediction. The
-            completeness for our static varibales can simply be calculated as a
-            percentage: (Missing data entries / Total expected data entries)
-          </p>
-          <br />
-          <div style={{ width: "90%", marginLeft: "5%" }}>
-            <Chart
-              chartType="bar"
-              text="Static Variables Completeness %"
-              chartData={variableData}
-              height={"350%"}
-            />
+        <div className="main">
+          <h1>Data Quality: Completeness</h1>
+          <hr
+            style={{
+              color: "#000000",
+              backgroundColor: "#000000",
+              height: 0.5,
+              borderColor: "#000000",
+            }}
+          />
+          <div className="box">
+            <h3>Definition of Completeness:</h3>
+            <p>
+              Completeness is defined as the expected comprehensiveness of a
+              dataset. Data can be complete even if optional data is missing. As
+              long as the data meets the expectations then the data is
+              considered complete.
+            </p>
           </div>
-          <br />
-          <br />
-          <p>
-            The dataset also contains non-static variables such as the SNIP and
-            ALSFRS measurements. These are recorded at intervals when a patient
-            attends a clinical visit. They help to map the patients
-            deterioration over time. There is no set number of clinical visits
-            which a patient must complete, therefore the completeness is
-            relative in this case. For example, we can assume the patient with
-            the most clinical visits obtains 100% completeness, and then compare
-            all other patients to this standard.
-          </p>
-          <div style={{ width: "45%", float: "left" }}>
-            <Chart
-              chartType="horizontalBar"
-              text="Number of SNIP entries per patient"
-              chartData={SNIPGraph}
-              height={"350%"}
-            />
-          </div>
-          <div style={{ width: "45%", float: "right" }}>
-            <Chart
-              chartType="horizontalBar"
-              text="Number of ALSFRS entries per patient"
-              chartData={ALSFRSGraph}
-              height={"350%"}
-            />
-          </div>
-          <br />
-          <br />
-          <p>
-            Tracking the completeness for each individual patient is also
-            important. A patients completeness is simply the percentage of
-            filled in variables for the given patient. For example, patients wih
-            low completeness percentage may need to be omitted from the model as
-            they will give greater weight to the variables they have opposed to
-            the ones missing.
-          </p>
-          <div style={{ width: "90%", marginLeft: "5%" }}>
-            <Chart
-              chartType="line"
-              text="Completeness % per patient"
-              chartData={ALSFRSGraph}
-              height={"350%"}
-            />
-          </div>
-        </div>
-
-        <div className="box">
-          <h4>References</h4>
-          <p>
+          <div className="box" style={{ float: "left" }}>
+            <h3>How this applies to our dataset:</h3>
+            <p>
+              In the case of our dataset, each variable has been carefully
+              selected through the process of backwards elimination and so in
+              our case the expected comprehensiveness includes all data points,
+              therefore any missing values will bring down the completeness
+              rating of our dataset.
+            </p>
             <ul>
-              <li>-</li>
-              <li>-</li>
-              <li>-</li>
-            </ul>
-          </p>
-        </div>
+              <li>
+                <p>
+                  The completeness for our
+                  <b> static variables</b> can simply be calculated as a
+                  percentage: <br />
+                  (Missing data entries / Total expected data entries)*100
+                </p>
+                <br />
 
-        <br />
+                <div
+                  style={{
+                    width: "60%",
+                    marginLeft: "20%",
+                  }}
+                >
+                  <Chart
+                    chartType="bar"
+                    text="Static Variables Completeness %"
+                    chartData={variableData}
+                    height={550}
+                  />
+                </div>
+              </li>
+              <br />
+              <li>
+                <p>
+                  The dataset also contains <b>non-static variables</b> such as
+                  the SNIP and ALSFRS measurements. These are recorded at
+                  non-uniform intervals when a patient attends a clinical visit.
+                  They help to map the patients deterioration over time. There
+                  is no set number of clinical visits which a patient is obliged
+                  to complete, therefore the completeness is relative in this
+                  case. For example, we can assume the patient with the highest
+                  number of clinical visits obtains 100% completeness, and then
+                  compare all other patients to this as a gold standard.
+                </p>
+
+                <br />
+
+                <div
+                  style={{
+                    width: "37%",
+                    marginLeft: "10%",
+                    marginRight: "6%",
+                    float: "left",
+                  }}
+                >
+                  <Chart
+                    chartType="horizontalBar"
+                    text="Number of SNIP entries per patient"
+                    chartData={SNIPGraph}
+                    height={350}
+                  />
+                </div>
+                <div
+                  style={{
+                    width: "37%",
+                    float: "right",
+                    marginRight: "10%",
+                  }}
+                >
+                  <Chart
+                    chartType="horizontalBar"
+                    text="Number of ALSFRS entries per patient"
+                    chartData={ALSFRSGraph}
+                    height={350}
+                  />
+                </div>
+              </li>
+              <li style={{ float: "left", paddingTop: "50px" }}>
+                <p>
+                  Tracking the completeness for each individual patient is also
+                  important. A patients completeness percentage is simply
+                  calculated as: <br />
+                  (number of missing datapoints/number of total expected
+                  datapoints)*100. <br />
+                  For example, patients wih low completeness percentage may need
+                  to be omitted from training the prediction model as they are
+                  biased towards certain variables.
+                  <br />
+                </p>
+
+                <div
+                  style={{
+                    width: "90%",
+                    marginLeft: "5%",
+                    marginBottom: "40px",
+                    float: "left",
+                  }}
+                >
+                  <Chart
+                    chartType="line"
+                    text="Completeness % per patient"
+                    chartData={patientData}
+                    height={450}
+                  />
+                </div>
+              </li>
+            </ul>
+          </div>
+          <div className="box" style={{ float: "left" }}>
+            <h4>References:</h4>
+            <ul>
+              <li>Reference 1</li>
+              <li>Reference 2</li>
+            </ul>
+          </div>
+          <br />
+        </div>
       </div>
     );
   }

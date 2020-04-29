@@ -13,6 +13,7 @@ code {
 }
 
 .metricContainer {
+  z-index: 2;
   background-color: rgb(255, 255, 255);
   margin-top: 20px;
   position: relative;
@@ -111,8 +112,7 @@ code {
 .topLeft {
   width: 25%;
   height: 200px;
-  background-color: #efffeb;
-  margin-left: 5%;
+  margin-left: 7.5%;
   margin-top: 2%;
   padding: 10px;
   position: relative;
@@ -120,15 +120,26 @@ code {
   box-shadow: 1px 2px 4px rgba(0, 0, 0, 0.5);
 }
 
+.container {
+  width: 100%;
+  display: table;
+  border-spacing: 10px;
+}
+.left,
+.right {
+  display: table-cell;
+  width: 50%;
+  text-align: center;
+  background-color: rgba(38, 157, 255, 0.342);
+}
+
 .box {
   width: 96%;
   background-color: #f9fffa;
   margin-left: 2%;
   margin-top: 20px;
-
   padding: 10px;
   position: relative;
-  float: left;
   font-size: 1.4pc;
   box-shadow: 1px 2px 4px rgba(0, 0, 0, 0.5);
 }
@@ -139,7 +150,6 @@ code {
   margin-left: 5%;
   margin-top: 2%;
   padding: 10px;
-  background-color: #fff4e6;
   position: relative;
   float: left;
   box-shadow: 1px 2px 4px rgba(0, 0, 0, 0.5);
@@ -148,7 +158,6 @@ code {
 .topRight {
   width: 25%;
   height: 200px;
-  background-color: #fff4e6;
   margin-left: 5%;
   margin-top: 2%;
   padding: 10px;
@@ -168,7 +177,6 @@ code {
 .centreLeft {
   width: 25%;
   height: 400px;
-  background-color: #fff4e6;
   margin-left: 5%;
   margin-top: 2%;
   padding: 10px;
@@ -180,7 +188,6 @@ code {
 .mainDisplay {
   width: 55%;
   height: 400px;
-  background-color: #fff4e6;
   margin-left: 5%;
   margin-top: 2%;
   padding: 10px;
@@ -192,7 +199,6 @@ code {
 .infoBar {
   width: 85%;
   height: 60px;
-  background-color: #fff4e6;
   margin-left: 5%;
   margin-top: 2%;
   margin-bottom: 2.5%;
@@ -206,17 +212,17 @@ code {
 
 .sidenav {
   height: 100%;
-  margin-top: 50px;
+  float: left;
   width: 160px;
   background-color: rgb(248, 248, 248);
   position: absolute;
-  z-index: 1;
   top: 0;
   left: 0;
-  box-shadow: 1px 2px 4px rgba(0, 0, 0, 0.5);
+  box-shadow: 1px 4px 4px rgba(0, 0, 0, 0.5);
   overflow-x: hidden;
+  overflow-y: hidden;
   padding-top: 20px;
-  z-index: -1;
+  z-index: -10;
 }
 
 .sidenav a {
@@ -234,19 +240,4 @@ code {
 .main {
   margin-left: 160px; /* Same as the width of the sidenav */
   font-size: 28px; /* Increased text to enable scrolling */
-  padding: 0px 10px;
-}
-
-@media screen and (max-height: 450px) {
-  .sidenav {
-    padding-top: 15px;
-  }
-  .sidenav a {
-    font-size: 18px;
-  }
-}
-
-.myfont {
-  font-family: "Times New Roman", Times, serif;
-  font-size: 18px;
 }

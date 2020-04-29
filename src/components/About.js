@@ -2,7 +2,7 @@ import React from "react";
 class About extends React.Component {
   render() {
     return (
-      <div style={{ position: "relative" }}>
+      <div style={{ position: "relative", marginTop: "20px" }}>
         <div class="aboutMND">
           <h1>Motor Neurone Disease</h1>
           <p>
@@ -61,8 +61,8 @@ class About extends React.Component {
           <p>
             High Data Quality is a vital prerequisite for any predictive model
             in order to ensure accurate and useful predictions. Data Quality is
-            measured using multiple factors such as accuracy, completeness,
-            timeliness, coherence and relevance. <br />
+            measured using multiple factors such as accuracy, accessability,
+            completeness, timeliness, coherence and relevance. <br />
             <br />
             It is my job to analyse our dataset in order to monitor these
             conditions. The results of my analysis will be available in real

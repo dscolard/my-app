@@ -3,30 +3,11 @@ import { Button, Modal } from "react-bootstrap";
 import { CSSTransition, TransitionGroup } from "react-transition-group";
 import Chart from "./Chart";
 import Completeness from "./Completeness";
-
-var chartData2 = {
-  labels: ["Data Gathered", "No Data"],
-  datasets: [
-    {
-      data: [85, 15],
-
-      backgroundColor: ["rgba(54,162,235,0.6)", "rgba(255,99,132,0.6)"],
-      borderWidth: 1
-    }
-  ]
-};
-
-var chartData3 = {
-  labels: ["Accurate Data", "Data Error"],
-  datasets: [
-    {
-      data: [97, 3],
-
-      backgroundColor: ["rgba(54,162,235,0.6)", "rgba(255,99,132,0.6)"],
-      borderWidth: 1
-    }
-  ]
-};
+import Relevance from "./Relevance";
+import Accuracy from "./Accuracy";
+import Coherence from "./Coherence";
+import Accessability from "./Accessability";
+import Time from "./Time";
 
 class Metrics extends React.Component {
   constructor(props) {
@@ -37,7 +18,7 @@ class Metrics extends React.Component {
       accuracyClicked: false,
       coherenceClicked: false,
       accessClicked: false,
-      relevanceClicked: false
+      relevanceClicked: false,
     };
   }
 
@@ -48,39 +29,39 @@ class Metrics extends React.Component {
       accuracyClicked: false,
       coherenceClicked: false,
       accessClicked: false,
-      relevanceClicked: false
+      relevanceClicked: false,
     });
 
     if (metric == "comp") {
       this.setState({
-        compClicked: true
+        compClicked: true,
       });
     } else if (metric == "time") {
       this.setState({
-        timeClicked: true
+        timeClicked: true,
       });
     } else if (metric == "acc") {
       this.setState({
-        accuracyClicked: true
+        accuracyClicked: true,
       });
     } else if (metric == "coherence") {
       this.setState({
-        coherenceClicked: true
+        coherenceClicked: true,
       });
     } else if (metric == "access") {
       this.setState({
-        accessClicked: true
+        accessClicked: true,
       });
     } else if (metric == "relevance") {
       this.setState({
-        relevanceClicked: true
+        relevanceClicked: true,
       });
     }
   }
 
   render() {
     return (
-      <div>
+      <div style={{}}>
         {this.state.compClicked && (
           <CSSTransition
             in={true}
@@ -88,11 +69,11 @@ class Metrics extends React.Component {
             timeout={500}
             classNames="fade"
           >
-            <div width="100%" height="100%">
+            <div style={{ width: "100%", height: "100%" }}>
               <div className="metricContainer">
                 <button
                   type="button"
-                  class="close"
+                  className="close"
                   aria-label="Close"
                   onClick={() => {
                     this.state.compClicked = false;
@@ -111,8 +92,9 @@ class Metrics extends React.Component {
                   }}
                   style={{
                     float: "left",
+                    marginLeft: "170px",
                     marginTop: "20px",
-                    marginBottom: "30px"
+                    marginBottom: "30px",
                   }}
                 >
                   Back to metrics
@@ -130,10 +112,10 @@ class Metrics extends React.Component {
             classNames="fade"
           >
             <div width="100%" height="100%">
-              <div className="displayMetric">
+              <div className="metricContainer">
                 <button
                   type="button"
-                  class="close"
+                  className="close"
                   aria-label="Close"
                   onClick={() => {
                     this.state.timeClicked = false;
@@ -142,69 +124,23 @@ class Metrics extends React.Component {
                 >
                   <span aria-hidden="true">&times;</span>
                 </button>
-                <h1 style={{ textAlign: "center" }}>
-                  Timeliness and Punctuality
-                </h1>
-                <hr
-                  style={{
-                    color: "#000000",
-                    backgroundColor: "#000000",
-                    height: 0.5,
-                    borderColor: "#000000"
-                  }}
-                />
-                <h4>Definition</h4>
-                <p>
-                  Timely data is collected within a reasonable agreed time
-                  period after the activity that it measures. Punctuality refers
-                  to whether data is delivered or reported on the dates
-                  promised, advertised or announced.
-                </p>
-                <h4>How is this applied to our dataset ?</h4>
-                <p>
-                  Timely data is crutial for obtaining accurate predictions.
-                  Ideally one would want to gather patient data for the entire
-                  duration of their illness from the date of diagnosis to the
-                  date of death. This would give us a full representation of the
-                  patients deterioration from start to finish. One would also
-                  want to gather data at regular intervals in order to
-                  accurately map the deterioration over time.
-                </p>
-                <h4>How is this measured ?</h4>
-                <p>
-                  For each patient I have recorded the time interval between
-                  theie first clinical visit to their last clinical visit and
-                  compared this to the time interval from their date of
-                  diagnosis diagnosis to their death. From this measurement we
-                  can see how much of each patients story we are missing and
-                  subsequently how much data we have not gathered which might be
-                  vital in producing an effective prediction model.
-                </p>
-                <Chart
-                  chartType="doughnut"
-                  text={
-                    "Average % of time for which data has not been gathered across the dataset"
-                  }
-                  chartData={chartData2}
-                  height={"500px"}
-                />
-                <br />
-                <b>
-                  To see a detailed analysis of timeliness please refere to the
-                  dashboard.
-                </b>
-                <br />
-                <br />
+
+                <Time />
+
                 <Button
                   onClick={() => {
                     this.state.timeClicked = false;
                     this.forceUpdate();
                   }}
-                  style={{ float: "left" }}
+                  style={{
+                    float: "left",
+                    marginLeft: "170px",
+                    marginTop: "20px",
+                    marginBottom: "30px",
+                  }}
                 >
-                  Close
+                  Back to metrics
                 </Button>
-                <Completeness />
               </div>
             </div>
           </CSSTransition>
@@ -218,10 +154,10 @@ class Metrics extends React.Component {
             classNames="fade"
           >
             <div width="100%" height="100%">
-              <div className="displayMetric">
+              <div className="metricContainer">
                 <button
                   type="button"
-                  class="close"
+                  className="close"
                   aria-label="Close"
                   onClick={() => {
                     this.state.accuracyClicked = false;
@@ -230,61 +166,20 @@ class Metrics extends React.Component {
                 >
                   <span aria-hidden="true">&times;</span>
                 </button>
-                <h1 style={{ textAlign: "center" }}>
-                  Accuracy and Reliability
-                </h1>
-                <hr
-                  style={{
-                    color: "#000000",
-                    backgroundColor: "#000000",
-                    height: 0.5,
-                    borderColor: "#000000"
-                  }}
-                />
-                <h4>Definition</h4>
-                <p>
-                  The accuracy of data refers to how closely the data correctly
-                  describes what it was designed to measure. Reliability refers
-                  to whether that data consistently measures, over time, the
-                  reality that it was designed to represent. Accurate data
-                  should be free of typos, transpositions, and other
-                  inaccuracies of data entry and classification.
-                </p>
-                <h4>How does this apply to our dataset ?</h4>
-                <p>
-                  In our case all the gathered data has been carefully selected
-                  in order to measure the composite survival endpoint for
-                  individual patients. Therefore the relative accuracy of our
-                  data would be directly related to the accuracy of the
-                  predictions themselves. <br />
-                  The accuracy of our data is also reliant on accurate recording
-                  of the patients data. Any typos, transpositions, or other
-                  inaccuracies of data entry and classification will reduce the
-                  quality og our data.
-                </p>
-                <h4>How is this measured ?</h4>
-                <p>
-                  The number of data entry errors per 100 data entries has been
-                  calculated throughhout the dataset. The accuracy of each
-                  variable can be seen on the dashboard page.
-                </p>
-                <br />
-                <Chart
-                  chartType="pie"
-                  text={"Data accuracy across entire dataset"}
-                  chartData={chartData3}
-                  height={"500px"}
-                />
-                <br />
-                <br />
+                <Accuracy />
                 <Button
                   onClick={() => {
                     this.state.accuracyClicked = false;
                     this.forceUpdate();
                   }}
-                  style={{ float: "left" }}
+                  style={{
+                    float: "left",
+                    marginLeft: "170px",
+                    marginTop: "20px",
+                    marginBottom: "30px",
+                  }}
                 >
-                  Close
+                  Back to metrics
                 </Button>
               </div>
             </div>
@@ -299,10 +194,10 @@ class Metrics extends React.Component {
             classNames="fade"
           >
             <div width="100%" height="100%">
-              <div className="displayMetric">
+              <div className="metricContainer">
                 <button
                   type="button"
-                  class="close"
+                  className="close"
                   aria-label="Close"
                   onClick={() => {
                     this.state.coherenceClicked = false;
@@ -311,40 +206,20 @@ class Metrics extends React.Component {
                 >
                   <span aria-hidden="true">&times;</span>
                 </button>
-                <h1 style={{ textAlign: "center" }}>
-                  Coherence & Comparability
-                </h1>
-                <hr
-                  style={{
-                    color: "#000000",
-                    backgroundColor: "#000000",
-                    height: 0.5,
-                    borderColor: "#000000"
-                  }}
-                />
-                <h4>Definition</h4>
-                <p>
-                  Coherent and comparable data is consistentover time and across
-                  providers and can beeasily combined with other sources. A
-                  major component of this is standardisation, ie. all data is
-                  recorded and stored according to set standards and practices.
-                  This makes it much easier for the data to be compared globally
-                  across the field of research. It also makes it much easier for
-                  a computer to analyse the data in large quantities.
-                </p>
-                <h4>How is this applied to our dataset ?</h4>
-                <p></p>
-
-                <p></p>
-                <br />
+                <Coherence />
                 <Button
                   onClick={() => {
                     this.state.coherenceClicked = false;
                     this.forceUpdate();
                   }}
-                  style={{ float: "left" }}
+                  style={{
+                    float: "left",
+                    marginLeft: "170px",
+                    marginTop: "20px",
+                    marginBottom: "30px",
+                  }}
                 >
-                  Close
+                  Back to metrics
                 </Button>
               </div>
             </div>
@@ -359,10 +234,10 @@ class Metrics extends React.Component {
             classNames="fade"
           >
             <div width="100%" height="100%">
-              <div className="displayMetric">
+              <div className="metricContainer">
                 <button
                   type="button"
-                  class="close"
+                  className="close"
                   aria-label="Close"
                   onClick={() => {
                     this.state.accessClicked = false;
@@ -371,37 +246,21 @@ class Metrics extends React.Component {
                 >
                   <span aria-hidden="true">&times;</span>
                 </button>
-                <h1 style={{ textAlign: "center" }}>Accessibility & Clarity</h1>
-                <hr
-                  style={{
-                    color: "#000000",
-                    backgroundColor: "#000000",
-                    height: 0.5,
-                    borderColor: "#000000"
-                  }}
-                />
-                <h4>Definition</h4>
-                <p>
-                  Accessability and clarity is a measure of how easily
-                  attainable the data is and how easily it can be understood.
-                  Myself and some colleagues are currently working on improving
-                  this aspect of the data quality by making it available to
-                  researchers via a web application.
-                </p>
-                <h4>How is this applied to our dataset ?</h4>
-                <p></p>
-                <h4>How is this measured ?</h4>
+                <Accessability />
 
-                <p></p>
-                <br />
                 <Button
                   onClick={() => {
                     this.state.accessClicked = false;
                     this.forceUpdate();
                   }}
-                  style={{ float: "left" }}
+                  style={{
+                    float: "left",
+                    marginLeft: "170px",
+                    marginTop: "20px",
+                    marginBottom: "30px",
+                  }}
                 >
-                  Close
+                  Back to metrics
                 </Button>
               </div>
             </div>
@@ -416,10 +275,10 @@ class Metrics extends React.Component {
             classNames="fade"
           >
             <div width="100%" height="100%">
-              <div className="displayMetric">
+              <div className="metricContainer">
                 <button
                   type="button"
-                  class="close"
+                  className="close"
                   aria-label="Close"
                   onClick={() => {
                     this.state.relevanceClicked = false;
@@ -428,57 +287,39 @@ class Metrics extends React.Component {
                 >
                   <span aria-hidden="true">&times;</span>
                 </button>
-                <h1 style={{ textAlign: "center" }}>Relevance</h1>
-                <hr
-                  style={{
-                    color: "#000000",
-                    backgroundColor: "#000000",
-                    height: 0.5,
-                    borderColor: "#000000"
-                  }}
-                />
-                <h4>Definition</h4>
-                <p>
-                  Relevant data is data which meets the current and potential
-                  future needs of the user. It would be fair to say that the
-                  current data being used is extremely relevant as each variable
-                  was carefully selected using backward elimination. The future
-                  relevance of this data is currently unknown however as we may
-                  uncover other factors which are far greater predictors of
-                  composite survival outcome than our current set of variables.
-                </p>
-                <h4>How is this applied to our dataset ?</h4>
-                <p></p>
-                <h4>How is this measured ?</h4>
 
-                <p></p>
-                <br />
+                <Relevance />
+
                 <Button
                   onClick={() => {
                     this.state.relevanceClicked = false;
                     this.forceUpdate();
                   }}
-                  style={{ float: "left" }}
+                  style={{
+                    float: "left",
+                    marginLeft: "170px",
+                    marginTop: "20px",
+                    marginBottom: "30px",
+                  }}
                 >
-                  Close
+                  Back to metrics
                 </Button>
               </div>
             </div>
           </CSSTransition>
         )}
 
-        <div style={{ zIndex: -1, position: "absolute", width: "100%" }}>
-          <div
-            style={{
-              margin: "40px",
-              backgroundColor: "#fff",
-              fontSize: "20px",
-              fontWeight: "bold"
-            }}
-          >
-            Select a data quality metric below to discover how it was measured
-            within our dataset....
-          </div>
+        <div
+          style={{
+            zIndex: -1,
+            position: "absolute",
+            width: "100%",
+          }}
+        >
+          <h1 style={{ textAlign: "center", marginTop: "40px" }}>
+            HIQA Defined <br />
+            Dimensions of Data Quality
+          </h1>
 
           <div>
             <Button
@@ -493,7 +334,7 @@ class Metrics extends React.Component {
                 display: "flex",
                 justifyContent: "center",
                 alignItems: "center",
-                textAlign: "center"
+                textAlign: "center",
               }}
             >
               Completeness
@@ -511,7 +352,7 @@ class Metrics extends React.Component {
                 display: "flex",
                 justifyContent: "center",
                 alignItems: "center",
-                textAlign: "center"
+                textAlign: "center",
               }}
             >
               Timeliness & Punctuality
@@ -529,7 +370,7 @@ class Metrics extends React.Component {
                 display: "flex",
                 justifyContent: "center",
                 alignItems: "center",
-                textAlign: "center"
+                textAlign: "center",
               }}
             >
               Accuracy & Reliability
@@ -549,7 +390,7 @@ class Metrics extends React.Component {
                 display: "flex",
                 justifyContent: "center",
                 alignItems: "center",
-                textAlign: "center"
+                textAlign: "center",
               }}
             >
               Coherence & Comparability
@@ -567,7 +408,7 @@ class Metrics extends React.Component {
                 display: "flex",
                 justifyContent: "center",
                 alignItems: "center",
-                textAlign: "center"
+                textAlign: "center",
               }}
             >
               Accessibility & Clarity
@@ -585,7 +426,7 @@ class Metrics extends React.Component {
                 display: "flex",
                 justifyContent: "center",
                 alignItems: "center",
-                textAlign: "center"
+                textAlign: "center",
               }}
             >
               Relevance

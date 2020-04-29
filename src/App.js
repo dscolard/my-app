@@ -1,16 +1,15 @@
-import React, { Component } from 'react'
-import './App.css'
-import Navigation from './components/Navigation';
-
+import React, { Component } from "react";
+import "./App.css";
+import Navigation from "./components/Navigation";
+import firebase from "firebase";
 
 class App extends Component {
-
   render() {
-    return(
-      <body>
-        <div><Navigation/></div>
-      </body>
-    ) ; 
+    return (
+      <div>
+        <Navigation />
+      </div>
+    );
   }
 }
 export default App;

@@ -1,14 +1,5 @@
 import React, { Component } from "react";
-import {
-  Bar,
-  Line,
-  Pie,
-  Doughnut,
-  Polar,
-  Bubble,
-  Scatter,
-  HorizontalBar
-} from "react-chartjs-2";
+import { Bar, Line, Pie, Doughnut, HorizontalBar } from "react-chartjs-2";
 
 class Chart extends Component {
   constructor(props) {
@@ -16,7 +7,7 @@ class Chart extends Component {
     this.state = {
       height: props.height,
       width: props.width,
-      chartData: props.chartData
+      chartData: props.chartData,
     };
   }
 
@@ -26,7 +17,7 @@ class Chart extends Component {
     chartData: {},
     text: "Completeness",
     legendPosition: "right",
-    chartType: "bar"
+    chartType: "bar",
   };
 
   render() {
@@ -44,12 +35,22 @@ class Chart extends Component {
                 title: {
                   display: this.props.displayTitle,
                   text: this.props.text,
-                  fontSize: 25
+                  fontSize: 25,
                 },
                 legend: {
                   display: this.props.displayLegend,
-                  position: this.props.legendPosition
-                }
+                  position: this.props.legendPosition,
+                },
+                scales: {
+                  yAxes: [
+                    {
+                      ticks: {
+                        beginAtZero: true,
+                        min: 0,
+                      },
+                    },
+                  ],
+                },
               }}
             />
           </div>
@@ -69,12 +70,22 @@ class Chart extends Component {
                 title: {
                   display: this.props.displayTitle,
                   text: this.props.text,
-                  fontSize: 25
+                  fontSize: 25,
                 },
                 legend: {
                   display: this.props.displayLegend,
-                  position: this.props.legendPosition
-                }
+                  position: this.props.legendPosition,
+                },
+                scales: {
+                  yAxes: [
+                    {
+                      ticks: {
+                        beginAtZero: true,
+                        min: 0,
+                      },
+                    },
+                  ],
+                },
               }}
             />
           </div>
@@ -88,18 +99,28 @@ class Chart extends Component {
               data={this.props.chartData}
               width={this.state.width}
               height={this.state.height}
+              legend={{
+                display: true,
+                position: "left",
+                fullWidth: true,
+                reverse: false,
+                labels: {
+                  fontSize: 20,
+                },
+              }}
               options={{
+                display: true,
                 responsive: true,
                 maintainAspectRatio: false,
                 title: {
                   display: this.props.displayTitle,
                   text: this.props.text,
-                  fontSize: 25
+                  fontSize: 25,
                 },
                 legend: {
                   display: this.props.displayLegend,
-                  position: this.props.legendPosition
-                }
+                  position: this.props.legendPosition,
+                },
               }}
             />
           </div>
@@ -119,12 +140,12 @@ class Chart extends Component {
                 title: {
                   display: this.props.displayTitle,
                   text: this.props.text,
-                  fontSize: 25
+                  fontSize: 25,
                 },
                 legend: {
                   display: this.props.displayLegend,
-                  position: this.props.legendPosition
-                }
+                  position: this.props.legendPosition,
+                },
               }}
             />
           </div>
@@ -144,12 +165,22 @@ class Chart extends Component {
                 title: {
                   display: this.props.displayTitle,
                   text: this.props.text,
-                  fontSize: 25
+                  fontSize: 25,
                 },
                 legend: {
                   display: this.props.displayLegend,
-                  position: this.props.legendPosition
-                }
+                  position: this.props.legendPosition,
+                },
+                scales: {
+                  yAxes: [
+                    {
+                      ticks: {
+                        beginAtZero: true,
+                        min: 0,
+                      },
+                    },
+                  ],
+                },
               }}
             />
           </div>
